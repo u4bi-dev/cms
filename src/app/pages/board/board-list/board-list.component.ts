@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RouterService } from '../../../providers/router.service';
 
 @Component({
   selector: 'app-board-list',
@@ -11,9 +12,11 @@ export class BoardListComponent implements OnInit {
   rows : any[] = [];
   boardName : string;
   
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, public routerService : RouterService) {
 
       let data = {
+        "boardId" : '개념글',
+        "id"    : 1,
         "title" : "제목 테스트입니다.",
         "write" : "ㅇㅇ",
         "date"  : "18:23",
@@ -21,7 +24,7 @@ export class BoardListComponent implements OnInit {
         "likes"  : 10
       };
 
-      for(let i = 500; i--;) this.rows.push(data);
+      for(let i = 10; i--;)this.rows.push(data);
 
   }
 
@@ -31,10 +34,11 @@ export class BoardListComponent implements OnInit {
 
   onPage(e) {
       console.log('page', e);
+      document.documentElement.scrollTop = 0;      
   }
 
   onActivate(e) {
-    if(e.type === 'click') console.log('activate', e.row);
+      if(e.type === 'click') this.routerService.onRouter(`/board/${e.row.boardId}/detail/${e.row.id}`);    
   }
 
   

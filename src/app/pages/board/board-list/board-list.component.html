@@ -6,13 +6,15 @@
 
     <ngx-datatable
     class='material expandable'
-    [loadingIndicator]="loadingIndicator"
+    [loadingIndicator]="loading"    
     [columnMode]="'force'"
-    [limit]="10"
     [headerHeight]="50"
     [footerHeight]="50"
+    [limit]="10"
+    [count]="5402"
+    [externalPaging]="true"
+    [offset]="0"    
     [rowHeight]="50"
-    [scrollbarV]="false"
     [rows]='rows'
     (page)="onPage($event)"
     (activate)="onActivate($event)">
@@ -79,5 +81,9 @@
       </ngx-datatable-column>
     
     </ngx-datatable>
+    
+    <div class="btn">
+        <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
+    </div>
 
 </div>

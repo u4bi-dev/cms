@@ -10,7 +10,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class LoginComponent implements OnInit {
 
   public loginForm: FormGroup;
-
+  public passwordHide = true;
+  
   constructor(private formBuilder: FormBuilder, public routerService : RouterService) { }
 
   ngOnInit() {

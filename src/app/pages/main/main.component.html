@@ -9,7 +9,6 @@
                 [limit]="5"
                 [headerHeight]="1"
                 [rowHeight]="50"
-                [scrollbarV]="false"
                 [rows]='rows'
                 (activate)="onActivate($event)">
                 
@@ -66,7 +65,6 @@
             [limit]="10"
             [headerHeight]="1"
             [rowHeight]="50"
-            [scrollbarV]="false"
             [rows]='rows'
             (activate)="onActivate($event)">
             
@@ -113,5 +111,10 @@
             
             </ngx-datatable>
         </div>
+
+        <div class="btn">
+            <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
+        </div>
+        
     </div>
 </div>

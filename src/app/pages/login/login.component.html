@@ -12,7 +12,8 @@
         </mat-form-field>
 
         <mat-form-field class="field" color="accent">
-            <input matInput placeholder="비밀번호" type="password" formControlName="password">
+            <input matInput placeholder="비밀번호"  [type]="passwordHide ? 'password' : 'text'" formControlName="password">
+            <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>            
             <mat-hint align="end">
                 {{ loginForm.controls.password.value.length }} / 20
             </mat-hint>
@@ -21,7 +22,7 @@
             </mat-error>
         </mat-form-field>
 
-        <button class="field submit" (click)="login(loginForm.value, loginForm.valid)" mat-button>로그인</button>
+        <button class="field submit" color="accent" (click)="login(loginForm.value, loginForm.valid)" mat-raised-button>로그인</button>
         
         <mat-radio-group class="field notice" formControlName="keep">
             <mat-radio-button value="true" color="accent">로그인 유지</mat-radio-button>

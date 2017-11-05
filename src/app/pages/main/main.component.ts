@@ -12,16 +12,17 @@ export class MainComponent implements OnInit {
 
   constructor(public routerService : RouterService) {
     
-    let data = {
-      "boardId" : '개념글',
-      "title" : "제목 테스트입니다.",
-      "write" : "ㅇㅇ",
-      "date"  : "18:23",
-      "hits"  : 1023,
-      "likes"  : 10
-    };
+      let data = {
+        "boardId" : '개념글',
+        "id"    : 1,
+        "title" : "제목 테스트입니다.",
+        "write" : "ㅇㅇ",
+        "date"  : "18:23",
+        "hits"  : 1023,
+        "likes"  : 10
+      };
 
-    for(let i = 500; i--;) this.rows.push(data);
+      for(let i = 10; i--;)this.rows.push(data);
 
   }
 
@@ -29,7 +30,7 @@ export class MainComponent implements OnInit {
   }
 
   onActivate(e) {
-    if(e.type === 'click') console.log('activate', e.row);
+      if(e.type === 'click') this.routerService.onRouter(`/board/${e.row.boardId}/detail/${e.row.id}`);
   }
 
 }

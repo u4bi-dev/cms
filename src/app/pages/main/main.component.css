@@ -14,8 +14,9 @@
 }
 
 .feed-title{
+    display: inline-block;
     margin: 0;
-    height: 20px;
+    height: 30px;
     font-weight: 500;
     cursor: pointer;
 }
@@ -24,6 +25,11 @@
     height: 80%;
     border: 1px solid rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    border-top: none;
+}
+
+.btn{
+  text-align : right;
 }
 
 @media screen and (max-width: 800px) {
