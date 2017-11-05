@@ -1,0 +1,12 @@
+.wrapper{
+    margin-top : 50px;
+    margin-bottom: 50px;
+    height: 30px;
+    color: #757575;
+    text-align: center;
+    line-height: 200%;
+}
+
+span{
+    cursor: pointer;
+}

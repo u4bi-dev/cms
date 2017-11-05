@@ -1,36 +1,31 @@
 <div class="wrapper">
-    <div class="box">
+    <form [formGroup]="loginForm" novalidate>
 
-        <form [formGroup]="loginForm" novalidate>
+        <mat-form-field class="field" color="accent">
+            <input matInput placeholder="아이디" formControlName="id">
+            <mat-hint align="end">
+                {{ loginForm.controls.id.value.length }} / 20
+            </mat-hint>
+            <mat-error *ngIf="!loginForm.controls.id.valid">
+                아이디가 비어져 있습니다.
+            </mat-error>
+        </mat-form-field>
 
-            <mat-form-field class="field" color="accent">
-                <input matInput placeholder="아이디" formControlName="id">
-                <mat-hint align="end">
-                  {{ loginForm.controls.id.value.length }} / 20
-                </mat-hint>
-                <mat-error *ngIf="!loginForm.controls.id.valid">
-                    아이디가 비어져 있습니다.
-                </mat-error>
-            </mat-form-field>
+        <mat-form-field class="field" color="accent">
+            <input matInput placeholder="비밀번호" type="password" formControlName="password">
+            <mat-hint align="end">
+                {{ loginForm.controls.password.value.length }} / 20
+            </mat-hint>
+            <mat-error *ngIf="!loginForm.controls.id.valid">
+                비밀번호가 비어져 있습니다.
+            </mat-error>
+        </mat-form-field>
 
-            <mat-form-field class="field" color="accent">
-                <input matInput placeholder="비밀번호" type="password" formControlName="password">
-                <mat-hint align="end">
-                  {{ loginForm.controls.password.value.length }} / 20
-                </mat-hint>
-                <mat-error *ngIf="!loginForm.controls.id.valid">
-                    비밀번호가 비어져 있습니다.
-                </mat-error>
-            </mat-form-field>
+        <button class="field submit" (click)="login(loginForm.value, loginForm.valid)" mat-button>로그인</button>
+        
+        <mat-radio-group class="field notice" formControlName="keep">
+            <mat-radio-button value="true" color="accent">로그인 유지</mat-radio-button>
+        </mat-radio-group>
 
-            <button class="field submit" (click)="login(loginForm.value, loginForm.valid)" mat-button>로그인</button>
-            
-            <mat-radio-group class="field notice" formControlName="keep">
-                <mat-radio-button value="true" color="accent">로그인 유지</mat-radio-button>
-            </mat-radio-group>
-
-        </form>
-
-
-    </div>
+    </form>
 </div>
