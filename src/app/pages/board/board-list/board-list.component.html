@@ -1,0 +1,83 @@
+<div class="wrapper">
+    
+    <div class="title">
+      <h1>{{ boardName }}</h1>
+    </div>
+
+    <ngx-datatable
+    class='material expandable'
+    [loadingIndicator]="loadingIndicator"
+    [columnMode]="'force'"
+    [limit]="10"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    [rowHeight]="50"
+    [scrollbarV]="false"
+    [rows]='rows'
+    (page)="onPage($event)"
+    (activate)="onActivate($event)">
+    
+      <ngx-datatable-column name="title" [flexGrow]="3" [width]="400" [maxWidth]="600" [minWidth]="200">
+        
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+          <span>제목</span>
+        </ng-template>
+    
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          {{value}}
+        </ng-template>
+    
+      </ngx-datatable-column>
+    
+      <ngx-datatable-column name="write" [flexGrow]="2" [maxWidth]="100" [minWidth]="50">
+        
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+          <span>작성자</span>
+        </ng-template>
+    
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+          <span>{{value}}</span>
+        </ng-template>
+    
+      </ngx-datatable-column>
+    
+      <ngx-datatable-column name="date" [flexGrow]="1" [maxWidth]="100">
+        
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+          <span class="mobile-hidden">작성시간</span>
+        </ng-template>
+    
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <span class="mobile-hidden">{{value}}</span>
+        </ng-template>
+    
+      </ngx-datatable-column>
+      
+    
+      <ngx-datatable-column name="hits" [flexGrow]="1" [maxWidth]="100">
+          
+          <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+            <span class="mobile-hidden">조회수</span>
+          </ng-template>
+    
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <span class="mobile-hidden">{{value}}</span>
+          </ng-template>
+    
+      </ngx-datatable-column>
+      
+      <ngx-datatable-column name="likes" [flexGrow]="1" [maxWidth]="100">
+          
+          <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+            <span class="mobile-hidden">추천수</span>
+          </ng-template>
+    
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <span class="mobile-hidden">{{value}}</span>
+          </ng-template>
+    
+      </ngx-datatable-column>
+    
+    </ngx-datatable>
+
+</div>
