@@ -1,0 +1,50 @@
+.wrapper{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.feed-wrapper{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;    
+            flex-flow: row wrap;
+}
+
+.feed{
+    -webkit-flex: 1 100%;
+            flex: 1 100%;
+    height: 150px;
+}
+
+.feed.main{
+    height: 500px;
+}
+
+.feed-title{
+    margin: 0;
+    height: 20px;
+    font-weight: 500;
+}
+
+.content{
+    height: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+@media(min-width: 700px){
+    .feed{
+        -webkit-flex : 1;
+                flex : 1;
+        height: 300px;
+    }
+
+    .content{
+        height: 90%;
+    }
+
+    .sub-left{
+        border-right: none;
+    }
+
+}
