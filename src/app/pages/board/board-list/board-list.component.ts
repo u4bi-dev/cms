@@ -14,8 +14,13 @@ export class BoardListComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, public routerService : RouterService) {
 
+  }
+
+  ngOnInit(){
+      this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
+      
       let data = {
-        "boardId" : '개념글',
+        "boardId" : this.boardName,
         "id"    : 1,
         "title" : "제목 테스트입니다.",
         "write" : "ㅇㅇ",
@@ -24,12 +29,8 @@ export class BoardListComponent implements OnInit {
         "likes"  : 10
       };
 
-      for(let i = 10; i--;)this.rows.push(data);
+      for(let i = 20; i--;)this.rows.push(data);
 
-  }
-
-  ngOnInit(){
-      this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
   }
 
   onPage(e) {

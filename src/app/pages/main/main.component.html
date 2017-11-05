@@ -1,8 +1,10 @@
 <div class="wrapper">
 
+    <div class="ad top"></div>
+
     <div class="feed">
-        <span class="feed-title" (click)="this.routerService.onRouter('/board/개념글')">개념글</span>
-        <div class="content">
+        <span class="feed-title" (click)="this.routerService.onRouter('/board/best')">개념글</span>
+        <div class="content sub">
                 <ngx-datatable
                 class='material expandable'
                 [columnMode]="'force'"
@@ -56,8 +58,16 @@
                 </ngx-datatable>
         </div>
     </div>
-    <div class="feed main">
-        <span class="feed-title" (click)="this.routerService.onRouter('/board/최근글')">최근글</span>
+    
+    <div class="ad middle"></div>
+    
+    <div class="feed">
+        <div style="float:left;">
+            <span class="feed-title" (click)="this.routerService.onRouter('/board/free')">최근글</span>
+        </div>
+        <div class="btn">               
+            <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
+        </div>
         <div class="content">
             <ngx-datatable
             class='material expandable'
@@ -111,10 +121,14 @@
             
             </ngx-datatable>
         </div>
-
+<!-- 
         <div class="btn">
+            <button color="accent" (click)="this.routerService.onRouter('/board/free')" mat-raised-button>목록</button>                
             <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
-        </div>
+        </div> -->
         
     </div>
+    
+    <div class="ad bottom"></div>
+    
 </div>

@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   constructor(public routerService : RouterService) {
     
       let data = {
-        "boardId" : '개념글',
+        "boardId" : 'free',
         "id"    : 1,
         "title" : "제목 테스트입니다.",
         "write" : "ㅇㅇ",

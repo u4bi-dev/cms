@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color="accent" [ngStyle]="scroll">
   <div class="title" (click)="this.routerService.onRouter('/')">CMS 타이틀</div>
   <mat-icon matTooltip="회원가입" (click)="this.routerService.onRouter('/regist')">assignment</mat-icon>
   <mat-icon matTooltip="로그인" (click)="this.routerService.onRouter('/login')" matTooltipPosition="left">person_outline</mat-icon>
