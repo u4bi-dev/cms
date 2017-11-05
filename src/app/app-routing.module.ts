@@ -7,10 +7,12 @@ import { MatButtonModule, MatRadioModule, MatInputModule, MatIconModule } from '
 
 import { MainComponent } from './pages/main/main.component';
 import { RegistComponent } from './pages/regist/regist.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes : Routes = [
   { path : '', component : MainComponent },
   { path : 'regist', component : RegistComponent },
+  { path : 'login', component : LoginComponent },
   { path : '**', redirectTo : '', pathMatch : 'full' }
 ];
 
@@ -27,7 +29,8 @@ const routes : Routes = [
   ],
   declarations: [
     MainComponent,
-    RegistComponent
+    RegistComponent,
+    LoginComponent
   ],
   exports: [
     RouterModule

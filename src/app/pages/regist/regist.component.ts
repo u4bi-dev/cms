@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterService } from '../../providers/router.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -9,12 +10,10 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class RegistComponent implements OnInit {
 
     public registForm: FormGroup;
-    public password : FormControl;
-    
     public passwordHide = true;
     
     
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(private formBuilder: FormBuilder, public routerService : RouterService) { }
 
     ngOnInit() {
 
@@ -69,7 +68,10 @@ export class RegistComponent implements OnInit {
 
     regist(model: Object, isValid: boolean){
 
-        if(isValid)alert(JSON.stringify(model));
+        if(isValid){
+            alert(JSON.stringify(model));
+            this.routerService.onRouter('/login');
+        }
 
     }
 

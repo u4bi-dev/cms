@@ -61,6 +61,5 @@ mat-icon{
 }
 
 /deep/ .mat-form-field-underline{
-    bottom: 0;
-    height: 0px !important;
+    display: none;
 }

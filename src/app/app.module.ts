@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTooltipModule, MatToolbarModule, MatIconModule } from '@angular/material';
 
+import { RouterService } from './providers/router.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
@@ -21,7 +23,9 @@ import { ToolbarComponent } from './shared/toolbar/toolbar.component';
     MatToolbarModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [
+    RouterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
