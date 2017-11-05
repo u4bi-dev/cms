@@ -1,0 +1,87 @@
+<div class="wrapper">
+  
+    <div class="title">
+      <h1>회원가입</h1>
+    </div>
+
+    <div class="terms">
+      CMS 타이틀 개인정보 취급방침<br>
+      정보통신망 이용촉진 등에 관한 법률 등 관련 법률에 의한 개인정보 보호규정 및 정보통신부가 제정한 개인정보지침을 준수하고 있습니다.<br>
+      <br>
+      <br>
+      1. 개인정보의 수집 이용 목적<br>
+      ∙아이디, 비밀번호, 이메일, 닉네임, 생년월일, 성별 : 회원 가입시에 사용자확인, 중복가입 방지, 부정 이용 방지를 위한 목적으로 사용합니다.<br>
+      ∙이용자의 IP Address, 접속 기록 등: 불량회원의 부정 이용방지와 비인가 사용방지, 통계학적 분석에 사용합니다.<br>
+      <br>
+      <br>
+      2. 개인정보의 수집 항목<br>
+      원활한 서비스 이용과 고객과의 소통을 위해 수집합니다.<br>
+      ∙필수항목: 아이디, 비밀번호, 이메일, 닉네임<br>
+      ∙자동수집항목: IP Address, 접속 기록, 쿠키 등<br>
+      <br>
+      <br>
+      3. 개인정보의 보유 및 이용기간<br>
+      -가입 회원정보는 탈퇴할 시 5년간 보관 후 파기됩니다.<br>
+      -단 게시물에서의 개인정보(닉네임 등)는 사이트 폐쇄 시까지 보관합니다.<br>
+      <br>
+    </div>
+    
+    <form [formGroup]="registForm" novalidate>
+      
+        <div class="check">
+            <mat-radio-group formControlName="terms">
+                <mat-radio-button value="true" color="primary">약관을 모두 읽었으며 동의합니다.</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <mat-error *ngIf="registForm.controls.password_check.valid && !registForm.controls.terms.valid">
+            약관에 동의하여야 서비스 이용이 가능합니다.
+        </mat-error>
+
+        <div class="form">
+            <div class="subtitle">기본 정보</div>
+
+                <div class="field">
+                    <label>아이디</label>
+                    <mat-form-field>
+                        <input formControlName="id" matInput >
+                        <mat-hint align="end">
+                          {{ registForm.controls.id.value.length }} / 20
+                        </mat-hint>
+                        <mat-error *ngIf="!registForm.controls.id.valid">
+                            아이디는 3~20자로 되어야 합니다.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="field">
+                    <label>비밀번호</label>
+                    <mat-form-field>
+                        <input formControlName="password" matInput [type]="passwordHide ? 'password' : 'text'">
+                        <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        <mat-hint align="end">
+                          {{ registForm.controls.password.value.length }} / 20
+                        </mat-hint>
+                        <mat-error *ngIf="!registForm.controls.password.valid">
+                            비밀번호는 6~20자로 되어야 합니다.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="field">
+                    <label>비밀번호 확인</label>
+                    <mat-form-field>
+                        <input formControlName="password_check" matInput [type]="passwordHide ? 'password' : 'text'">
+                        <mat-error *ngIf="!registForm.controls.password_check.valid">
+                            비밀번호와 동일하지 않습니다.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                
+                <div class="btn">
+                    <button mat-button (click)="regist(registForm.value, registForm.valid)">회원가입</button>
+                    <button mat-button>취소</button>
+                </div>
+
+        </div>
+        
+    </form>
+
+</div>

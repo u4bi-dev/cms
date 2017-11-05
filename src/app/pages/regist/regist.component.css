@@ -1,0 +1,66 @@
+.wrapper{
+    width: 80%;
+    margin: auto;
+}
+
+.title{
+    padding-top: 1px;
+}
+
+.terms{
+    padding : 10px 10px 0 10px;
+    max-height: 450px;
+    overflow: scroll;
+    border: .1px solid rgba(0, 0, 0, 0.15);
+}
+
+.check{
+    padding : 10px 0 20px 0;
+}
+
+.subtitle{
+    text-align : center;
+    padding : 15px 0 15px 0;
+    background : rgba(0, 0, 0, 0.02);
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.form{
+}
+
+.field{
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.field label{
+    display:inline-block;    
+    max-width: 150px;
+    width : 30%;
+}
+
+.field mat-form-field{
+    max-width: 200px;
+    width: 50%;
+}
+
+.field input{
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    font-size: 1.2rem;
+    text-decoration: none;
+    outline: none;
+}
+
+mat-icon{
+    margin-right: -60px;
+    padding-left: 10px;
+}
+
+.btn{
+    text-align: right;
+}
+
+/deep/ .mat-form-field-underline{
+    bottom: 0;
+    height: 0px !important;
+}
