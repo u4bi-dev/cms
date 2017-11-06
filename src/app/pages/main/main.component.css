@@ -37,10 +37,7 @@
     border: 1px solid rgba(0, 0, 0, 0.15);
     overflow: hidden;
     border-top: none;
-}
-
-.content.sub{
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .btn{
