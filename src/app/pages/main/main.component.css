@@ -11,12 +11,12 @@
 .ad.top,
 .ad.middle,
 .ad.bottom{
-  height: 150px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
-.ad.middle{
-  height: 100px;
+.ad.top{
+  height: 400px;
 }
 
 .feed{

@@ -1,3 +1,15 @@
 <div class="wrapper">
-    <h1>Write</h1>
+
+    <mat-form-field class="title" color="accent">
+        <input matInput placeholder="제목">
+    </mat-form-field>
+
+    <quill-editor [options]="editorOptions"
+    (ready)="editorInit($event)">
+    </quill-editor>
+
+    <div class="btn">
+        <button color="accent" mat-raised-button (click)="write()">글 등록</button>
+    </div>
+
   </div>

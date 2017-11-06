@@ -1,5 +1,17 @@
 .wrapper{
     width: 80%;
     margin: auto;
-    border: 1px solid red;
+}
+
+.title{
+    padding-top: 10px;
+    width : 100%;
+}
+
+.btn{
+    text-align: right;
+}
+
+/deep/ .mat-form-field-underline{
+    display: none;
 }

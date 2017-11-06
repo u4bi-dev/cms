@@ -7,9 +7,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WriteComponent implements OnInit {
 
+  private editor;
+  public editorOptions = {
+    placeholder: "작성해주세요..",
+    modules: {
+      toolbar: [
+        ['bold'],
+        [{ 'color': [] }],
+        [{ 'align': [] }],
+        [{ 'size': ['small', false, 'large', 'huge'] }],
+        ['link'],
+        ['image'],
+        ['video'],
+        ['code-block']
+      ]
+    }
+  };
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  editorInit(quill) {
+    this.editor = quill;
+  }
+
+  write(){
+    console.log(this.editor.getContents());
   }
 
 }

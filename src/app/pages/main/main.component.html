@@ -65,7 +65,8 @@
         <div style="float:left;">
             <span class="feed-title" (click)="this.routerService.onRouter('/board/free')">최근글</span>
         </div>
-        <div class="btn">               
+        <div class="btn">
+            <button color="accent" (click)="this.routerService.onRouter('/board/free')" mat-raised-button>글 목록</button>                
             <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
         </div>
         <div class="content">
