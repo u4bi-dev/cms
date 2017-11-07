@@ -1,12 +1,13 @@
 .wrapper{
     width: 90%;
+    max-width: 730px;
     margin: auto;
 }
 
 .title{
     padding-top: 1px;
     position: relative;
-    border: .1px solid transparent;    
+    border: .1px solid transparent;
 }
 
 .title button{
@@ -17,7 +18,7 @@
 
   
 .content{
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    /* border: 1px solid rgba(0, 0, 0, 0.15); */
 }
 
 .info{
@@ -34,12 +35,15 @@
 }
 
 .toolbar{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.15); */
     position: relative;
 }
 
 .content-title{
-    font-size: 1.5rem;
+    font-weight: 500;
+    font-size: 38px;
+    line-height: 1.04;
+    letter-spacing: -.015em;
     padding-left : 5px;
     padding-bottom : 1.5rem;
 }

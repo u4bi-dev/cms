@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterService } from '../../../providers/router.service';
 
@@ -8,37 +8,49 @@ import { RouterService } from '../../../providers/router.service';
   styleUrls: ['./board-list.component.css']
 })
 export class BoardListComponent implements OnInit {
-  
-  rows : any[] = [
-    { "boardId" : 'programming', "id"    : 1, "title" : "1번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 2, "title" : "2번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 3, "title" : "3번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 4, "title" : "4번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 5, "title" : "5번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 6, "title" : "6번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 7, "title" : "7번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 8, "title" : "8번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 },
-    { "boardId" : 'programming', "id"    : 9, "title" : "9번글 제목 테스트입니다.", "write" : "ㅇㅇ", "date"  : "18:23", "hits"  : 1023, "likes"  : 10 }
-  ];
-  boardName : string;
 
-  offset : number = 0;
+  page = {
+    size : 0,
+    totlaElements : 0,
+    totalPages : 0,
+    pageNumber : 0
+  };
+  isLoading : boolean;
+  ticker : any;
+  rows : any[] = [];
+  boardName : string;
   
   constructor(private route: ActivatedRoute, public routerService : RouterService) {
-
+    this.page.pageNumber = 0;    
   }
 
   ngOnInit(){
       this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
+      this.loadView(8);
+  }
+
+  setPage(pageInfo) {
+
+      if(this.page.pageNumber <= pageInfo.offset && this.page.pageNumber !== pageInfo.offset){
+        
+        this.isLoading = true;
+
+        this.page.pageNumber = pageInfo.offset;
+        this.page.size = pageInfo.pageSize;
+        const start = (this.page.pageNumber + 1) * this.page.size;
+        this.loadView(start);
+
+      }
 
   }
 
-  onPage(e) {
-    if(this.offset <= e.offset && this.offset !== e.offset){
-      this.offset = e.offset;
+  loadView(start : number){
+      clearTimeout(this.ticker);
+      
+      this.ticker = setTimeout(() => {
+        
+          for(let i = this.rows.length; i < start; i++){
 
-      setTimeout(()=>{
-          for(let i = 9; i--;){
               this.rows.push({
                 "boardId" : this.boardName,
                 "id"    : this.rows.length+1,
@@ -50,12 +62,10 @@ export class BoardListComponent implements OnInit {
               });
           }
 
-      }, 300);
-      
-    }
-    
-    // document.documentElement.scrollTop = 0;      
+          this.isLoading = false;
+          // console.log(start);
 
+      }, 1);
   }
 
   onActivate(e) {

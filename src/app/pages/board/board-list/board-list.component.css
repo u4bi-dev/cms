@@ -18,6 +18,20 @@
 ngx-datatable{
   height: 500px;
 }
+.ngx-datatable.material{
+  box-shadow: none !important;
+}
+
+.ad{
+  border: .1px solid rgba(0, 0, 0, 0.15);
+}
+
+.ad.top,
+.ad.middle,
+.ad.bottom{
+  height: 100px;
+  margin-bottom: 20px;
+}
 
 @media screen and (max-width: 800px) {
 
