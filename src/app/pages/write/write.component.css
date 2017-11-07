@@ -8,10 +8,27 @@
     width : 100%;
 }
 
+.title input{
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+    font-size: 1.1rem;
+    text-decoration: none;
+    outline: none;
+}
+
 .btn{
     text-align: right;
 }
 
 /deep/ .mat-form-field-underline{
     display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper{
+      width: 100%;
+    }
+
+    .title{
+        padding-left : 2px;
+    }
 }

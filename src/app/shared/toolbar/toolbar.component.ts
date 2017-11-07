@@ -20,7 +20,7 @@ export class ToolbarComponent implements OnInit {
     
     let top = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     
-    this.scroll = top < 100 ? { 'opacity' : '1' } : { 'opacity' : '0' };
+    this.scroll = top < 20 ? { 'opacity' : '1' } : { 'opacity' : '0' };
     
   }
 

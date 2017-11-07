@@ -8,7 +8,7 @@ import { QuillEditorModule } from 'ngx-quill-editor';
 // import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxDatatableStubModule } from './ngx-datatable-stub.module';
 
-import { MatButtonModule, MatRadioModule, MatInputModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatRadioModule, MatInputModule, MatIconModule, MatToolbarModule } from '@angular/material';
 
 import { MainComponent } from './pages/main/main.component';
 import { RegistComponent } from './pages/regist/regist.component';
@@ -44,6 +44,7 @@ const routes : Routes = [
     MatRadioModule,
     MatInputModule,
     MatIconModule,
+    MatToolbarModule,
     FormsModule,
     ReactiveFormsModule
   ],

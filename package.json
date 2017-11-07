@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --prod --host 0.0.0.0 --port 7777",
+    "start": "ng serve --aot --host 0.0.0.0 --port 7777",
     "build": "ng build --prod --base-href 'https://u4bi-dev.github.io/cms/'",
     "test": "ng test",
     "lint": "ng lint",

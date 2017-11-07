@@ -1,3 +1,28 @@
+<div class="wrapper title">    
+    <!-- <h1>{{ boardName }} 게시판</h1> -->
+    <h1>프로그래밍</h1>
+    <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>    
+</div>
+
+<div class="wrapper content">
+
+    <div class="toolbar">
+        <div class="content-title">제목 테스트입니다</div>      
+
+        <div class="info left">작성자란입니다</div>
+        <div class="info right">2017.11.07 13:25 view 1232</div>
+    </div>
+
+    <quill-editor (ready)="editorReady($event)" [options]="{ theme : 'bubble', readOnly : true }">
+    </quill-editor>
+</div>
+
 <div class="wrapper">
-  <h1>{{ boardName }} {{ boardDetailId }}번글</h1>
+    
+    <div class="btn">
+        <button color="accent" (click)="page(-1)" mat-raised-button>이전 글</button>
+        <button color="accent" (click)="this.routerService.onRouter('/board/programming')" mat-raised-button>글 목록</button>
+        <button color="accent" (click)="page(1)" mat-raised-button>다음 글</button>
+    </div>
+
 </div>

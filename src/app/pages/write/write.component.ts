@@ -34,7 +34,8 @@ export class WriteComponent implements OnInit {
   }
 
   write(){
-    console.log(this.editor.getContents());
+    console.log(JSON.stringify(this.editor.getContents()));
+    alert(JSON.stringify(this.editor.getContents()));
   }
 
 }
