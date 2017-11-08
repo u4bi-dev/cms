@@ -3,8 +3,11 @@
     margin: auto;
 }
 
+.page{
+    padding-top: 1px;
+}
+
 .title{
-    padding-top: 10px;
     width : 100%;
 }
 

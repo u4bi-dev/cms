@@ -1,0 +1,66 @@
+<div class="wrapper">
+
+    <mat-toolbar>
+        <span (click)="this.routerService.onRouter('/board/'+viewBoard.uri)">{{ viewBoard.name }}</span>
+        <div class="btn" *ngIf="viewBoard.isButton">
+            <button color="accent" (click)="this.routerService.onRouter('/board/'+viewBoard.uri)" mat-raised-button>글 목록</button>                
+            <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
+        </div>
+    </mat-toolbar>
+
+    <div class="content">
+        <ngx-datatable
+        class='material expandable'
+        [columnMode]="'force'"
+        [limit]="viewBoard.limit"
+        [scrollbarH]="isScrollH"
+        [headerHeight]="1"
+        [rowHeight]="50"
+        [rows]='rows'
+        (activate)="onActivate($event)">
+        
+            <ngx-datatable-column name="title" [flexGrow]="3" [width]="400" [maxWidth]="600" [minWidth]="200">
+
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value}}
+            </ng-template>
+        
+            </ngx-datatable-column>
+        
+            <ngx-datatable-column name="write" [flexGrow]="2" [maxWidth]="100" [minWidth]="50">
+
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span>{{value}}</span>
+            </ng-template>
+        
+            </ngx-datatable-column>
+        
+            <ngx-datatable-column name="date" [flexGrow]="1" [maxWidth]="100">
+        
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                <span class="mobile-hidden">{{value}}</span>
+            </ng-template>
+        
+            </ngx-datatable-column>
+            
+        
+            <ngx-datatable-column name="hits" [flexGrow]="1" [maxWidth]="100">
+
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                <span class="mobile-hidden">{{value}}</span>
+                </ng-template>
+        
+            </ngx-datatable-column>
+            
+            <ngx-datatable-column name="likes" [flexGrow]="1" [maxWidth]="100">
+        
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                <span class="mobile-hidden">{{value}}</span>
+                </ng-template>
+        
+            </ngx-datatable-column>
+        
+        </ngx-datatable>
+    </div>
+    
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterService } from '../../providers/router.service';
+import { ViewBoard } from '../../models/view-board.model';
 
 @Component({
   selector: 'app-main',
@@ -7,30 +7,24 @@ import { RouterService } from '../../providers/router.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
+  tapBoard : ViewBoard[] = [];
+  mainBoard : ViewBoard;
   
-  rows: any[] = [];
+  constructor() {
+    this.tapBoard = [
+      { name : '이시각 핫플레이스', uri : 'hot', isButton : true, limit : 5 },
+      { name : '프론트엔드', uri : 'frontend', isButton : true, limit : 5 },
+      { name : '백엔드', uri : 'backend', isButton : true, limit : 5 },
+      { name : '시스템', uri : 'sysdev', isButton : true, limit : 5 },
+      { name : '알고리즘', uri : 'algorithm', isButton : true, limit : 5 }
+    ];
 
-  constructor(public routerService : RouterService) {
-    
-      let data = {
-        "boardId" : 'programming',
-        "id"    : 1,
-        "title" : "제목 테스트입니다.",
-        "write" : "ㅇㅇ",
-        "date"  : "18:23",
-        "hits"  : 1023,
-        "likes"  : 10
-      };
-
-      for(let i = 10; i--;)this.rows.push(data);
+    this.mainBoard = { name : '최근글', uri : 'latest', isButton : false, limit : 10 };
 
   }
 
   ngOnInit() {
-  }
-
-  onActivate(e) {
-      if(e.type === 'click') this.routerService.onRouter(`/board/${e.row.boardId}/detail/${e.row.id}`);
   }
 
 }

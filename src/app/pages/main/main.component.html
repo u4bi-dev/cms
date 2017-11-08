@@ -1,74 +1,17 @@
 <div class="wrapper">
 
     <!-- <div class="ad top"></div> -->
-    <!-- <div class="ad middle"></div> -->
-    
-    <div class="feed">
 
-        <mat-toolbar>
-            <span (click)="this.routerService.onRouter('/board/programming')">최근글</span>
-            <div class="btn">
-                <button color="accent" (click)="this.routerService.onRouter('/board/programming')" mat-raised-button>글 목록</button>                
-                <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
-            </div>
-        </mat-toolbar>
+    <mat-tab-group color="accent">
+        <mat-tab *ngFor="let tap of tapBoard" [label]="tap.name">
+            <app-main-tap-board [viewBoard]="tap"></app-main-tap-board>
+        </mat-tab>
+    </mat-tab-group>
 
-        <div class="content">
-            <ngx-datatable
-            class='material expandable'
-            [columnMode]="'force'"
-            [limit]="10"
-            [headerHeight]="1"
-            [rowHeight]="50"
-            [rows]='rows'
-            (activate)="onActivate($event)">
-            
-                <ngx-datatable-column name="title" [flexGrow]="3" [width]="400" [maxWidth]="600" [minWidth]="200">
+    <div class="ad middle"></div>
 
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    {{value}}
-                </ng-template>
-            
-                </ngx-datatable-column>
-            
-                <ngx-datatable-column name="write" [flexGrow]="2" [maxWidth]="100" [minWidth]="50">
+    <app-main-tap-board [viewBoard]="mainBoard"></app-main-tap-board>
 
-                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                    <span>{{value}}</span>
-                </ng-template>
-            
-                </ngx-datatable-column>
-            
-                <ngx-datatable-column name="date" [flexGrow]="1" [maxWidth]="100">
-            
-                <ng-template let-value="value" ngx-datatable-cell-template>
-                    <span class="mobile-hidden">{{value}}</span>
-                </ng-template>
-            
-                </ngx-datatable-column>
-                
-            
-                <ngx-datatable-column name="hits" [flexGrow]="1" [maxWidth]="100">
-
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                    <span class="mobile-hidden">{{value}}</span>
-                    </ng-template>
-            
-                </ngx-datatable-column>
-                
-                <ngx-datatable-column name="likes" [flexGrow]="1" [maxWidth]="100">
-            
-                    <ng-template let-value="value" ngx-datatable-cell-template>
-                    <span class="mobile-hidden">{{value}}</span>
-                    </ng-template>
-            
-                </ngx-datatable-column>
-            
-            </ngx-datatable>
-        </div>
-        
-    </div>
-    
     <div class="ad bottom"></div>
     
 </div>

@@ -4,6 +4,7 @@ mat-toolbar{
     width: 100%;
     height: 50px;
     background: #fff;
+    color : #E91E63;
     box-shadow: 0 .1px .1px rgba(0, 0, 0, 0.12), 0 0 .1px rgba(0, 0, 0, 0.4);
     z-index: 2;
     -webkit-transition:all .3s ease;
@@ -21,7 +22,6 @@ mat-icon{
 .title{
     margin: auto;
     padding-left: 80px;
-    color: #fff;
     cursor: pointer;
 }
 

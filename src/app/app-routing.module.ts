@@ -8,9 +8,11 @@ import { QuillEditorModule } from 'ngx-quill-editor';
 // import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgxDatatableStubModule } from './ngx-datatable-stub.module';
 
-import { MatButtonModule, MatRadioModule, MatInputModule, MatIconModule, MatToolbarModule, MatProgressBarModule } from '@angular/material';
+import { MatButtonModule, MatRadioModule, MatInputModule, MatIconModule, MatToolbarModule, MatProgressBarModule, MatTabsModule } from '@angular/material';
 
 import { MainComponent } from './pages/main/main.component';
+import { MainTapBoardComponent } from './pages/main/main-tap-board/main-tap-board.component';
+
 import { RegistComponent } from './pages/regist/regist.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BoardComponent } from './pages/board/board.component';
@@ -46,11 +48,13 @@ const routes : Routes = [
     MatIconModule,
     MatToolbarModule,
     MatProgressBarModule,
+    MatTabsModule,
     FormsModule,
     ReactiveFormsModule
   ],
   declarations: [
     MainComponent,
+    MainTapBoardComponent,
     RegistComponent,
     LoginComponent,
     BoardComponent,
