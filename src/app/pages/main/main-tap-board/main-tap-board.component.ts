@@ -31,7 +31,7 @@ export class MainTapBoardComponent implements OnInit {
       "likes"  : 10
     });
 
-    setTimeout( ()=> this.isScrollH = false, 800);
+    setTimeout( ()=> this.isScrollH = false, 1200);
 
   }
 

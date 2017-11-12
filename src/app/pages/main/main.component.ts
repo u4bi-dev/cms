@@ -13,7 +13,7 @@ export class MainComponent implements OnInit {
   
   constructor() {
     this.tapBoard = [
-      { name : '이시각 핫플레이스', uri : 'hot', isButton : true, limit : 5 },
+      { name : '이달의 핫플레이스', uri : 'hot', isButton : false, limit : 5 },
       { name : '프론트엔드', uri : 'frontend', isButton : true, limit : 5 },
       { name : '백엔드', uri : 'backend', isButton : true, limit : 5 },
       { name : '시스템', uri : 'sysdev', isButton : true, limit : 5 },

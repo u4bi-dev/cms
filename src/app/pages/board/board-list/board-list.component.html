@@ -2,7 +2,7 @@
     
     <div class="title">
       <h1>프로그래밍</h1>
-      <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
+      <button color="accent" (click)="this.routerService.onRouter('/board/'+boardName+'/write')" mat-raised-button>글쓰기</button>
     </div>
     <ngx-datatable
     class='material expandable'

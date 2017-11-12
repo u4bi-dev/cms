@@ -2,9 +2,8 @@
 
     <mat-toolbar>
         <span (click)="this.routerService.onRouter('/board/'+viewBoard.uri)">{{ viewBoard.name }}</span>
-        <div class="btn" *ngIf="viewBoard.isButton">
-            <button color="accent" (click)="this.routerService.onRouter('/board/'+viewBoard.uri)" mat-raised-button>글 목록</button>                
-            <button color="accent" (click)="this.routerService.onRouter('/write')" mat-raised-button>글쓰기</button>
+        <div class="btn" *ngIf="viewBoard.isButton">         
+            <button color="accent" (click)="this.routerService.onRouter('/board/'+viewBoard.uri+'/write')" mat-raised-button>글쓰기</button>
         </div>
     </mat-toolbar>
 

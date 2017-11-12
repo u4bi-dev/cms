@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-write',
-  templateUrl: './write.component.html',
-  styleUrls: ['./write.component.css']
+  selector: 'app-board-write',
+  templateUrl: './board-write.component.html',
+  styleUrls: ['./board-write.component.css']
 })
-export class WriteComponent implements OnInit {
-
+export class BoardWriteComponent implements OnInit {
+  
+  boardName : string;
   private editor;
   public editorOptions = {
     placeholder: "작성해주세요..",
@@ -24,9 +26,11 @@ export class WriteComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
+    
   }
 
   editorInit(quill) {

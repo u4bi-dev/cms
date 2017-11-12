@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WriteComponent } from './write.component';
+import { BoardWriteComponent } from './board-write.component';
 
-describe('WriteComponent', () => {
-  let component: WriteComponent;
-  let fixture: ComponentFixture<WriteComponent>;
+describe('BoardWriteComponent', () => {
+  let component: BoardWriteComponent;
+  let fixture: ComponentFixture<BoardWriteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WriteComponent ]
+      declarations: [ BoardWriteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WriteComponent);
+    fixture = TestBed.createComponent(BoardWriteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

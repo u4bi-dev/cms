@@ -18,17 +18,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { BoardComponent } from './pages/board/board.component';
 import { BoardListComponent } from './pages/board/board-list/board-list.component';
 import { BoardDetailComponent } from './pages/board/board-detail/board-detail.component';
-import { WriteComponent } from './pages/write/write.component';
+import { BoardWriteComponent } from './pages/board/board-write/board-write.component';
 
 const routes : Routes = [
   { path : '', component : MainComponent },
   { path : 'regist', component : RegistComponent },
   { path : 'login', component : LoginComponent },
-  { path : 'write', component : WriteComponent },
   { path : 'board/:id', component : BoardComponent,
     children : [
       { path : '', component : BoardListComponent },
-      { path : 'detail/:id', component : BoardDetailComponent },      
+      { path : 'write', component : BoardWriteComponent },
+      { path : 'detail/:id', component : BoardDetailComponent },
       { path : '**', redirectTo : '', pathMatch : 'full' }
     ]},
   { path : 'board', redirectTo : '', pathMatch : 'full' },
@@ -60,7 +60,7 @@ const routes : Routes = [
     BoardComponent,
     BoardListComponent,
     BoardDetailComponent,
-    WriteComponent
+    BoardWriteComponent
   ],
   exports: [
     RouterModule
