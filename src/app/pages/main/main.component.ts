@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewBoard } from '../../models/view-board.model';
+
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { BoardPanelModel } from '../../providers/boardPanel/boardPanel.model';
+import { GetBoardPanels, GetLaTestBoardPanel } from '../../providers/boardPanel/boardPanel.actions';
+
+interface MainState{
+  boardPanel : any;
+}
 
 @Component({
   selector: 'app-main',
@@ -8,20 +17,22 @@ import { ViewBoard } from '../../models/view-board.model';
 })
 export class MainComponent implements OnInit {
 
-  tapBoard : ViewBoard[] = [];
-  mainBoard : ViewBoard;
+  private boardPanel$ : Observable<any>;  
+  tapBoard : BoardPanelModel[] = [];
+  mainBoard : BoardPanelModel;
   
-  constructor() {
-    this.tapBoard = [
-      { name : '이달의 핫플레이스', uri : 'hot', isButton : false, limit : 5 },
-      { name : '프론트엔드', uri : 'frontend', isButton : true, limit : 5 },
-      { name : '백엔드', uri : 'backend', isButton : true, limit : 5 },
-      { name : '시스템', uri : 'sysdev', isButton : true, limit : 5 },
-      { name : '알고리즘', uri : 'algorithm', isButton : true, limit : 5 }
-    ];
-
-    this.mainBoard = { name : '최근글', uri : 'latest', isButton : false, limit : 10 };
-
+  constructor(private store : Store<MainState>) {
+    console.log('dd');
+    this.boardPanel$ = this.store.select('boardPanel');
+    this.boardPanel$.subscribe(e => {
+      if(e){
+        this.tapBoard = e.tapBoard;
+        this.mainBoard = e.mainBoard;
+      }
+    });
+    
+    this.store.dispatch(new GetBoardPanels());
+    this.store.dispatch(new GetLaTestBoardPanel());
   }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RouterService } from '../../../providers/router.service';
-import { ViewBoard } from '../../../models/view-board.model';
+import { BoardPanelModel } from '../../../providers/boardPanel/boardPanel.model';
 
 @Component({
   selector: 'app-main-tap-board',
@@ -10,7 +10,7 @@ import { ViewBoard } from '../../../models/view-board.model';
 export class MainTapBoardComponent implements OnInit {
 
 
-  @Input() viewBoard: ViewBoard;
+  @Input() viewBoard: BoardPanelModel;
 
   rows: any[] = [];
   isScrollH : boolean;
