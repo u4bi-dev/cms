@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+// import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 import { BoardPanelModel, BoardPanelServiceModel } from '../boardPanel.model';
-import { BoardPanel } from '../boardPanel';
+import { BoardPanel } from '../boardPanel';;
+
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class BoardPanelMockUPService implements BoardPanelServiceModel{

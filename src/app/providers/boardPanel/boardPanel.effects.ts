@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Actions, Effect } from '@ngrx/effects';
-import { Observable } from 'rxjs';
 
 import * as BoardPanelActions from './boardPanel.actions';
 import { BoardPanelService } from './boardPanel.service';
+
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
 
 export type Action = BoardPanelActions.All;
 
