@@ -22,7 +22,8 @@ export class BoardPanelMockUPService implements BoardPanelServiceModel{
             { id : this.randId(), name : '프론트엔드', uri : 'frontend', isButton : true, limit : 5 },
             { id : this.randId(), name : '백엔드', uri : 'backend', isButton : true, limit : 5 },
             { id : this.randId(), name : '시스템', uri : 'sysdev', isButton : true, limit : 5 },
-            { id : this.randId(), name : '알고리즘', uri : 'algorithm', isButton : true, limit : 5 }
+            { id : this.randId(), name : '알고리즘', uri : 'algorithm', isButton : true, limit : 5 },
+            { id : this.randId(), name : '데이터베이스', uri : 'database', isButton : true, limit : 5 }
         ].map(e => this.render(e));
 
         return Observable.of(data)
