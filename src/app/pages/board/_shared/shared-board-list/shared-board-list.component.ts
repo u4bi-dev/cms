@@ -60,7 +60,7 @@ export class SharedBoardListComponent implements OnInit {
 
             this.isLoading = false;
 
-        }, 1);
+        }, 200);
     }
 
     onActivate(e) {

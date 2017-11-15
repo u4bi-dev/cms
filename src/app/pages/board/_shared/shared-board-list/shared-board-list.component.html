@@ -1,3 +1,5 @@
+<mat-progress-bar *ngIf="isLoading" color="accent" [mode]="'indeterminate'"></mat-progress-bar>
+
 <ngx-datatable class='material expandable'
 [columnMode]="'force'"
 [headerHeight]="50"
@@ -74,5 +76,3 @@
   </ngx-datatable-column>
 
 </ngx-datatable>
-
-<mat-progress-bar *ngIf="isLoading" color="accent" [mode]="'indeterminate'"></mat-progress-bar>
