@@ -5,6 +5,12 @@
 @import '~@swimlane/ngx-datatable/release/themes/material.css';
 @import '~@swimlane/ngx-datatable/release/assets/icons.css';
 
+@import url(assets/stylesheets/NotoSansKR-Hestia.css);
+
+*{
+    font-family: 'Noto Sans Korean', sans-serif;      
+}
+
 body{
     margin: 0;
     padding : 0;

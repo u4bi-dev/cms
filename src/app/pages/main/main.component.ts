@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
   mainBoard : BoardPanelModel;
   
   constructor(private store : Store<MainState>) {
-    console.log('dd');
+    
     this.boardPanel$ = this.store.select('boardPanel');
     this.boardPanel$.subscribe(e => {
       if(e){
