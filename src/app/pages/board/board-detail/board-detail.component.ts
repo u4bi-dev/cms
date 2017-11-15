@@ -16,12 +16,12 @@ export class BoardDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, public routerService : RouterService) { }
 
   ngOnInit() {
+    this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
   }
 
   editorReady(quill) {
     this.editor = quill;
 
-    this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
     this.route.params.subscribe( (param: any) => {
       this.boardDetailId = +param['id'];
       this.viewContent(this.boardName ,this.boardDetailId);

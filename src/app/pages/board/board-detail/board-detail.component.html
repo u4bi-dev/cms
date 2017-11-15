@@ -1,6 +1,6 @@
 <div class="wrapper title">
     <app-ad></app-ad>
-    <h4>프로그래밍</h4>
+    <h4>{{ boardName }}</h4>
     <button color="accent" (click)="this.routerService.onRouter('/board/'+boardName+'/write')" mat-raised-button>글쓰기</button>    
 </div>
 
@@ -20,8 +20,10 @@
     
     <div class="btn">
         <button color="accent" (click)="page(-1)" mat-raised-button>이전 글</button>
-        <button color="accent" (click)="this.routerService.onRouter('/board/programming')" mat-raised-button>글 목록</button>
+        <button color="accent" (click)="this.routerService.onRouter('/board/'+ boardName)" mat-raised-button>글 목록</button>
         <button color="accent" (click)="page(1)" mat-raised-button>다음 글</button>
     </div>
 
+    <app-shared-board-list></app-shared-board-list>
+    
 </div>
