@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedBoardListComponent } from './shared-board-list.component';
+import { DetailBoardListComponent } from './detail-board-list.component';
 
-describe('SharedBoardListComponent', () => {
-  let component: SharedBoardListComponent;
-  let fixture: ComponentFixture<SharedBoardListComponent>;
+describe('DetailBoardListComponent', () => {
+  let component: DetailBoardListComponent;
+  let fixture: ComponentFixture<DetailBoardListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SharedBoardListComponent ]
+      declarations: [ DetailBoardListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SharedBoardListComponent);
+    fixture = TestBed.createComponent(DetailBoardListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -6,6 +6,10 @@ ngx-datatable{
     box-shadow: none !important;
 }
 
+.bar{
+    margin-top : 2px;
+    height: 5px;
+}
 
 @media screen and (max-width: 800px) {
     .wrapper{

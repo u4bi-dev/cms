@@ -20,7 +20,7 @@ import { BoardListComponent } from './pages/board/board-list/board-list.componen
 import { BoardDetailComponent } from './pages/board/board-detail/board-detail.component';
 import { BoardWriteComponent } from './pages/board/board-write/board-write.component';
 import { AdComponent } from './pages/_shared/ad/ad.component';
-import { SharedBoardListComponent } from './pages/board/_shared/shared-board-list/shared-board-list.component';
+import { DetailBoardListComponent } from './pages/board/board-detail/detail-board-list/detail-board-list.component';
 
 const routes : Routes = [
   { path : '', component : MainComponent },
@@ -64,7 +64,7 @@ const routes : Routes = [
     BoardDetailComponent,
     BoardWriteComponent,
     AdComponent,
-    SharedBoardListComponent
+    DetailBoardListComponent
   ],
   exports: [
     RouterModule
