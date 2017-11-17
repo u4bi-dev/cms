@@ -29,7 +29,7 @@ export class BoardDetailComponent implements OnInit {
   }
 
   viewContent(board : string , id : number){
-    let data = {"ops":[{"attributes":{"size":"large"},"insert":`${ board }게시판 ${ id }번글 테스트입니다. \n`},{"insert":"\n\n"},{"attributes":{"size":"large"},"insert":"테스트 입니다 테스트 테스트"},{"insert":"\n"}]};
+    let data = {"ops":[{"attributes":{"size":"normal"},"insert":`${ board }게시판 ${ id }번글 테스트입니다. \n`},{"insert":"\n"},{"attributes":{"size":"normal"},"insert":"테스트 입니다 테스트 테스트"},{"insert":"\n"}]};
     this.editor.setContents(data);
   }
 

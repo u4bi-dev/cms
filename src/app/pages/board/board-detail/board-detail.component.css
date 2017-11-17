@@ -10,6 +10,10 @@
     border: .1px solid transparent;
 }
 
+.title h4{
+    cursor: pointer;
+}
+
 .title button{
     position: absolute;
     right: 0;
@@ -24,7 +28,7 @@
 .info{
     font-size: .9rem;
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
 }
 
 .left{
@@ -35,7 +39,8 @@
 }
 
 .toolbar{
-    /* border-bottom: 1px solid rgba(0, 0, 0, 0.15); */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
     position: relative;
 }
 
@@ -45,11 +50,16 @@
     line-height: 1.04;
     letter-spacing: -.015em;
     padding-left : 5px;
-    padding-bottom : 1.5rem;
+    padding-bottom : 2.5rem;
 }
 
 .btn{
     text-align: center;
+}
+
+.btn button{
+    border-radius: 50px;
+    font-weight: 400;
 }
 
 @media screen and (max-width: 800px) {

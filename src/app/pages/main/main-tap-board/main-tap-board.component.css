@@ -21,6 +21,7 @@ mat-toolbar{
   margin: 0;
   padding: 0;
   background: transparent;
+  color : #484848;
 }
 
 mat-toolbar span{
