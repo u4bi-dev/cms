@@ -1,0 +1,62 @@
+.wrapper{
+    width: 100%;
+}
+
+.list{
+    width: 98%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.write{
+    display: block;
+    width: 98%;
+    margin: auto;
+    padding-left: 5px;
+    margin-top: 20px;
+}
+
+.write textarea{
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+    font-size: .9rem;
+    text-decoration: none;
+    outline: none;
+    line-height: 150%;
+}
+
+.write-btn{
+    width: 98%;
+    margin : auto;
+    text-align: right;
+    margin-right : 10px;
+}
+
+.comment{
+    font-size: .9rem;
+    margin-bottom: 20px;
+}
+
+.title{
+    position: relative;
+    height: 30px;
+}
+
+.info{
+    position: absolute;
+}
+
+.left{
+    left: 5px;
+}
+.right{
+    top : -9px;
+    right: 10px;
+}
+
+.content{
+    padding-left: 5px;
+}
+
+/deep/ .mat-form-field-underline{
+    display: none;
+}

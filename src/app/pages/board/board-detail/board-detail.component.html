@@ -1,6 +1,6 @@
 <div class="wrapper title">
     <app-ad></app-ad>
-    <h4>{{ boardName }}</h4>
+    <h4>{{ boardName }} 게시판</h4>
     <button color="accent" (click)="this.routerService.onRouter('/board/'+boardName+'/write')" mat-raised-button>글쓰기</button>    
 </div>
 
@@ -24,6 +24,8 @@
         <button color="accent" (click)="page(1)" mat-raised-button>다음 글</button>
     </div>
 
+    <app-detail-board-comment></app-detail-board-comment>
+    
     <app-detail-board-list></app-detail-board-list>
     
 </div>
