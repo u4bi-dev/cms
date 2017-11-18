@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { RouterService } from '../../../../providers/router.service';
+
+import { BoardPanelModel } from '../../../../providers/boardPanel/boardPanel.model';
 
 @Component({
   selector: 'app-detail-board-list',
@@ -18,14 +19,13 @@ export class DetailBoardListComponent implements OnInit {
     isLoading : boolean;
     ticker : any;
     rows : any[] = [];
-    boardName : string;
+    @Input('detailBoard') detailBoard : BoardPanelModel;
     
-    constructor(private route: ActivatedRoute, public routerService : RouterService) {
+    constructor(public routerService : RouterService) {
         this.page.pageNumber = 0;    
     }
 
     ngOnInit(){
-        this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
         this.loadView(0);
     }
 
@@ -46,9 +46,9 @@ export class DetailBoardListComponent implements OnInit {
             
             for(let i = start; i < (start + this.page.size); i++){
                 this.rows[count] = {
-                    "boardId" : this.boardName,
+                    "uri" : this.detailBoard.uri,
                     "id"    : i,
-                    "title" : `${ i }번글 제목 테스트입니다.`,
+                    "title" : `${ this.detailBoard.name } 제목${ i }`,
                     "write" : "ㅇㅇ",
                     "date"  : "18:23",
                     "hits"  : 1023,
@@ -64,7 +64,7 @@ export class DetailBoardListComponent implements OnInit {
     }
 
     onActivate(e) {
-        if(e.type === 'click') this.routerService.onRouter(`/board/${e.row.boardId}/detail/${e.row.id}`);    
+        if(e.type === 'click') this.routerService.onRouter(`/board/${e.row.uri}/detail/${e.row.id}`);    
     }
     
 }

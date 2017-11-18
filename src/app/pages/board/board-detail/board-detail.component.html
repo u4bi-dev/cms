@@ -2,18 +2,18 @@
     
     <app-ad></app-ad>
     
-    <h4 (click)="this.routerService.onRouter('/board/'+ boardName)">{{ boardName }} 게시판</h4>
+    <h4 (click)="this.routerService.onRouter('/board/'+ detailBoard.uri)">{{ detailBoard.name }}</h4>
     
-    <button color="accent" (click)="this.routerService.onRouter('/board/'+boardName+'/write')" mat-raised-button>글쓰기</button>
+    <button *ngIf="detailBoard.isButton" color="accent" (click)="this.routerService.onRouter('/board/'+detailBoard.uri+'/write')" mat-raised-button>글쓰기</button>
 
 </div>
 
 <div class="wrapper">
 
-    <app-detail-board-content></app-detail-board-content>
+    <app-detail-board-content [detailBoard]="detailBoard"></app-detail-board-content>
 
     <app-detail-board-comment></app-detail-board-comment>
     
-    <app-detail-board-list></app-detail-board-list>
+    <app-detail-board-list [detailBoard]="detailBoard"></app-detail-board-list>
 
 </div>

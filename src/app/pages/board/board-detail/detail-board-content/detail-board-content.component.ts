@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterService } from '../../../../providers/router.service';
+
+import { BoardPanelModel } from '../../../../providers/boardPanel/boardPanel.model';
 
 @Component({
   selector: 'app-detail-board-content',
@@ -10,13 +12,12 @@ import { RouterService } from '../../../../providers/router.service';
 export class DetailBoardContentComponent implements OnInit {
 
     private editor;
-    boardName : string;
-    boardDetailId : number; 
+    boardDetailId : number;
+    @Input('detailBoard') detailBoard : BoardPanelModel;
 
     constructor(private route: ActivatedRoute, public routerService : RouterService) { }
 
     ngOnInit() {
-        this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
     }
 
     editorReady(quill) {
@@ -24,18 +25,13 @@ export class DetailBoardContentComponent implements OnInit {
 
         this.route.params.subscribe( (param: any) => {
             this.boardDetailId = +param['id'];
-            this.viewContent(this.boardName ,this.boardDetailId);
+            this.viewContent(this.detailBoard.name ,this.boardDetailId);
         });
     }
 
     viewContent(board : string , id : number){
         let data = {"ops":[{"attributes":{"size":"normal"},"insert":`${ board }게시판 ${ id }번글 테스트입니다. \n`},{"insert":"\n"},{"attributes":{"size":"normal"},"insert":"테스트 입니다 테스트 테스트"},{"insert":"\n"}]};
         this.editor.setContents(data);
-    }
-
-    page(num : number){
-        if(num === -1 && this.boardDetailId === 0)return;
-        this.routerService.onRouter(`/board/${ this.boardName }/detail/${ this.boardDetailId + num }`);
     }
 
 }

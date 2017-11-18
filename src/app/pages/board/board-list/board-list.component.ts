@@ -1,13 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterService } from '../../../providers/router.service';
+
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+import { GetDetailBoardPanel } from '../../../providers/boardPanel/boardPanel.actions';
+import { BoardPanelModel } from '../../../providers/boardPanel/boardPanel.model';
+
+interface MainState{
+  boardPanel : any;
+}
 
 @Component({
   selector: 'app-board-list',
   templateUrl: './board-list.component.html',
   styleUrls: ['./board-list.component.css']
 })
-export class BoardListComponent implements OnInit {
+export class BoardListComponent implements OnInit, OnDestroy {
 
   page = {
     size : 0,
@@ -18,14 +27,33 @@ export class BoardListComponent implements OnInit {
   isLoading : boolean;
   ticker : any;
   rows : any[] = [];
-  boardName : string;
+
+  private boardPanel$ : Observable<any>;
+  private sub : Subscription;
+
+  detailBoard : BoardPanelModel;
   
-  constructor(private route: ActivatedRoute, public routerService : RouterService) {
-    this.page.pageNumber = 0;    
+  constructor(private route: ActivatedRoute, public routerService : RouterService, private store : Store<MainState>) {
+    this.page.pageNumber = 0;
+
+    this.boardPanel$ = this.store.select('boardPanel');
+    this.sub = this.boardPanel$.subscribe(e => {
+        if(e){
+            this.detailBoard = e.detailBoard;
+        }
+    });
+
+  }
+
+  ngOnDestroy(){
+      this.sub.unsubscribe();
   }
 
   ngOnInit(){
-      this.route.parent.params.subscribe( (param: any) => this.boardName = param['id'] );
+      this.route.parent.params.subscribe( (param: any) =>{
+          this.store.dispatch(new GetDetailBoardPanel(param['id']));        
+      });
+
       this.loadView(8);
   }
 
@@ -52,9 +80,9 @@ export class BoardListComponent implements OnInit {
           for(let i = this.rows.length; i < start; i++){
 
               this.rows.push({
-                "boardId" : this.boardName,
-                "id"    : this.rows.length+1,
-                "title" : `${ this.rows.length+1 }번글 제목 테스트입니다.`,
+                "uri" : this.detailBoard.uri,
+                "id"    : this.rows.length,
+                "title" : `${ this.detailBoard.name } 제목${ this.rows.length }`,
                 "write" : "ㅇㅇ",
                 "date"  : "18:23",
                 "hits"  : 1023,
@@ -69,7 +97,7 @@ export class BoardListComponent implements OnInit {
   }
 
   onActivate(e) {
-      if(e.type === 'click') this.routerService.onRouter(`/board/${e.row.boardId}/detail/${e.row.id}`);    
+      if(e.type === 'click') this.routerService.onRouter(`/board/${e.row.uri}/detail/${e.row.id}`);    
   }
 
   

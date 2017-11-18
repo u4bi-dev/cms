@@ -24,5 +24,10 @@ export class BoardPanelEffects {
     @Effect() getLaTestBoardPanel$ = this.actions$
         .ofType(BoardPanelActions.GET_LATEST_BOARD_PANEL)
         .switchMap((action : any) => this.boardPanelService.getLaTestBoardPanel())
-        .map((v : any) => new BoardPanelActions.GetLaTestBoardPanelSuccess(v));        
+        .map((v : any) => new BoardPanelActions.GetLaTestBoardPanelSuccess(v));
+        
+    @Effect() getDetailBoardPanel$ = this.actions$
+        .ofType(BoardPanelActions.GET_DETAIL_BOARD_PANEL)
+        .switchMap((action : any) => this.boardPanelService.getDetailBoardPanel(action.boardUri))
+        .map((v : any) => new BoardPanelActions.GetDetailBoardPanelSuccess(v));              
 }

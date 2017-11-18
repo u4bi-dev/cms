@@ -11,6 +11,7 @@ export class BoardPanelService implements BoardPanelServiceModel{
 
     constructor(private boardPanelMockUPService : BoardPanelMockUPService){}
     
-    getBoardPanels   = () => this.boardPanelMockUPService.getBoardPanels();
+    getBoardPanels        = () => this.boardPanelMockUPService.getBoardPanels();
     getLaTestBoardPanel   = () => this.boardPanelMockUPService.getLaTestBoardPanel();
+    getDetailBoardPanel   = (boardUri) => this.boardPanelMockUPService.getDetailBoardPanel(boardUri);
 }

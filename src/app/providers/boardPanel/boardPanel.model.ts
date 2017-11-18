@@ -9,4 +9,5 @@ export interface BoardPanelModel{
 export interface BoardPanelServiceModel{
     getBoardPanels();
     getLaTestBoardPanel();
+    getDetailBoardPanel(boardUri : string);
 }

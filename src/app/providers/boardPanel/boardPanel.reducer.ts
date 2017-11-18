@@ -7,7 +7,8 @@ export type Action = BoardActions.All;
 const initialState = {
     pending: false,
     tapBoard : [],
-    mainBoard : {}
+    mainBoard : {},
+    detailBoard : {}
 };
 
 const newState = (state, newData ) => Object.assign({}, state, newData);
@@ -23,7 +24,10 @@ export function boardPanelReducer(state = initialState, action : Action){
             return newState(state, { pending: true });
         case BoardActions.GET_LATEST_BOARD_PANEL_SUCCESS :
             return newState(state, { pending: false, mainBoard : action.mainBoard });
-
+        case BoardActions.GET_DETAIL_BOARD_PANEL   :
+            return newState(state, { pending: true });
+        case BoardActions.GET_DETAIL_BOARD_PANEL_SUCCESS :
+            return newState(state, { pending: false, detailBoard : action.detailBoard });
         default : state;
     }
 
