@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-detail-comment-entry',
@@ -7,23 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailCommentEntryComponent implements OnInit {
 
+    @ViewChild('replyField') replyField : ElementRef;
+    replyTicker : Subscription;
     isReply : boolean;
-    replyText : string;
 
     constructor() { }
 
     ngOnInit() {
     }
 
-    viewReply = () => this.isReply = !this.isReply;
+    viewReply = () => {
+        this.isReply = !this.isReply;
+        let timer = Observable.timer(100);
+        this.replyTicker = timer.subscribe(v => {
+            if(this.replyField) this.replyField.nativeElement.focus();
+            this.replyTicker.unsubscribe();
+        });
+
+    };
 
     sendReply(){
-        let data = { replyText : this.replyText };
+        this.replyTicker.unsubscribe();
 
-        alert(JSON.stringify(data));
-        
-        this.replyText = '';
-        this.viewReply();
+        if(this.replyField.nativeElement.value){
+            let data = { replyText : this.replyField.nativeElement.value };
+            alert(JSON.stringify(data));
+        }
+
+        this.replyField.nativeElement.value = '';
+        this.isReply = !this.isReply;
     }
 
 }

@@ -15,9 +15,12 @@ export class DetailBoardCommentComponent implements OnInit {
     }
 
     sendComment(){
-        let data = { commentText : this.commentText };
         
-        alert(JSON.stringify(data));
+        if(this.commentText){
+            let data = { commentText : this.commentText };
+            alert(JSON.stringify(data));
+        }
+
         this.commentText = '';
     }
 

@@ -13,7 +13,7 @@
   </div>
 
   <mat-form-field *ngIf="isReply" class="write" color="accent">
-    <textarea [(ngModel)]="replyText" matInput placeholder="답글 작성" matTextareaAutosize matAutosizeMinRows="1"></textarea>
+    <textarea #replyField matInput placeholder="답글 작성" matTextareaAutosize matAutosizeMinRows="1"></textarea>
     
     <button (click)="sendReply()" color="accent" mat-icon-button matSuffix>
       <mat-icon >reply</mat-icon>
