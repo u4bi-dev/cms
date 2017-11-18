@@ -1,29 +1,19 @@
 <div class="wrapper title">
+    
     <app-ad></app-ad>
+    
     <h4 (click)="this.routerService.onRouter('/board/'+ boardName)">{{ boardName }} 게시판</h4>
-    <button color="accent" (click)="this.routerService.onRouter('/board/'+boardName+'/write')" mat-raised-button>글쓰기</button>    
-</div>
+    
+    <button color="accent" (click)="this.routerService.onRouter('/board/'+boardName+'/write')" mat-raised-button>글쓰기</button>
 
-<div class="wrapper content">
-
-    <div class="toolbar">
-        <div class="content-title">제목 테스트입니다</div>
-        <div class="info left">작성자란입니다</div>
-        <div class="info right">2017.11.07 13:25 view 1232</div>
-    </div>
-
-    <quill-editor (ready)="editorReady($event)" [options]="{ theme : 'bubble', readOnly : true }">
-    </quill-editor>
 </div>
 
 <div class="wrapper">
-    
-    <div class="btn">
-        <button color="accent" mat-raised-button>추천 <mat-icon>favorite</mat-icon></button>
-    </div>
+
+    <app-detail-board-content></app-detail-board-content>
 
     <app-detail-board-comment></app-detail-board-comment>
     
     <app-detail-board-list></app-detail-board-list>
-    
+
 </div>

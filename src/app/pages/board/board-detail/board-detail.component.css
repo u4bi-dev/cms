@@ -1,7 +1,7 @@
 .wrapper{
     width: 90%;
-    max-width: 730px;
-    max-width: 830px;
+    /* max-width: 730px; */
+    /* max-width: 830px; */
     max-width: 930px;
     /* max-width: 1000px; */
     margin: auto;
@@ -21,48 +21,6 @@
     position: absolute;
     right: 0;
     bottom: 0;
-}
-
-  
-.content{
-    /* border: 1px solid rgba(0, 0, 0, 0.15); */
-}
-
-.info{
-    font-size: .9rem;
-    position: absolute;
-    bottom: 5px;
-}
-
-.left{
-    left: 5px;
-}
-.right{
-    right: 10px;
-}
-
-.toolbar{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.content-title{
-    font-weight: 500;
-    font-size: 38px;
-    line-height: 1.04;
-    letter-spacing: -.015em;
-    padding-left : 5px;
-    padding-bottom : 2.5rem;
-}
-
-.btn{
-    text-align: center;
-}
-
-.btn button{
-    border-radius: 50px;
-    font-weight: 400;
 }
 
 @media screen and (max-width: 800px) {

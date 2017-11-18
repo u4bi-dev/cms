@@ -22,6 +22,7 @@ import { BoardWriteComponent } from './pages/board/board-write/board-write.compo
 import { AdComponent } from './pages/_shared/ad/ad.component';
 import { DetailBoardListComponent } from './pages/board/board-detail/detail-board-list/detail-board-list.component';
 import { DetailBoardCommentComponent } from './pages/board/board-detail/detail-board-comment/detail-board-comment.component';
+import { DetailBoardContentComponent } from './pages/board/board-detail/detail-board-content/detail-board-content.component';
 
 const routes : Routes = [
   { path : '', component : MainComponent },
@@ -66,7 +67,8 @@ const routes : Routes = [
     BoardWriteComponent,
     AdComponent,
     DetailBoardListComponent,
-    DetailBoardCommentComponent
+    DetailBoardCommentComponent,
+    DetailBoardContentComponent
   ],
   exports: [
     RouterModule
