@@ -54,6 +54,7 @@
 mat-icon{
     margin-right: -60px;
     padding-left: 10px;
+    cursor: pointer;
 }
 
 .btn{

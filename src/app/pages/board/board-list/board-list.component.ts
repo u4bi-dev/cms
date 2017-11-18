@@ -82,7 +82,7 @@ export class BoardListComponent implements OnInit, OnDestroy {
               this.rows.push({
                 "uri" : this.detailBoard.uri,
                 "id"    : this.rows.length,
-                "title" : `${ this.detailBoard.name } 제목${ this.rows.length }`,
+                "title" : `${ this.detailBoard.name } ${ this.rows.length }번글 제목`,
                 "write" : "ㅇㅇ",
                 "date"  : "18:23",
                 "hits"  : 1023,

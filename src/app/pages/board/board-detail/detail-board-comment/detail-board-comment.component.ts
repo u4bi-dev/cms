@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailBoardCommentComponent implements OnInit {
 
-  constructor() { }
+    commentText : string;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
+
+    sendComment(){
+        let data = { commentText : this.commentText };
+        
+        alert(JSON.stringify(data));
+        this.commentText = '';
+    }
 
 }

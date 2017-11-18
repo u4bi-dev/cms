@@ -56,7 +56,7 @@
                     <label>비밀번호</label>
                     <mat-form-field>
                         <input formControlName="password" matInput [type]="passwordHide ? 'password' : 'text'">
-                        <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        <mat-icon matSuffix color="accent" (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>
                         <mat-hint align="end">
                           {{ registForm.controls.password.value.length }} / 20
                         </mat-hint>

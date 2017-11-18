@@ -17,6 +17,10 @@
     outline: none;    
 }
 
+.field mat-icon{
+    cursor: pointer;
+}
+
 .submit{
     margin-top: 20px;
     color: #fff;

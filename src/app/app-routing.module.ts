@@ -23,6 +23,7 @@ import { AdComponent } from './pages/_shared/ad/ad.component';
 import { DetailBoardListComponent } from './pages/board/board-detail/detail-board-list/detail-board-list.component';
 import { DetailBoardCommentComponent } from './pages/board/board-detail/detail-board-comment/detail-board-comment.component';
 import { DetailBoardContentComponent } from './pages/board/board-detail/detail-board-content/detail-board-content.component';
+import { DetailCommentEntryComponent } from './pages/board/board-detail/detail-board-comment/detail-comment-entry/detail-comment-entry.component';
 
 const routes : Routes = [
   { path : '', component : MainComponent },
@@ -68,7 +69,8 @@ const routes : Routes = [
     AdComponent,
     DetailBoardListComponent,
     DetailBoardCommentComponent,
-    DetailBoardContentComponent
+    DetailBoardContentComponent,
+    DetailCommentEntryComponent
   ],
   exports: [
     RouterModule

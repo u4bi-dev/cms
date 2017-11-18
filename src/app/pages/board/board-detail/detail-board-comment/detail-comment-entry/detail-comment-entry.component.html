@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="title">
+    <div class="info left">댓글 작성자</div>
+    <div class="info right">
+      2017.11.07 13:25
+      <button (click)="viewReply()" color="accent" mat-icon-button>
+        <mat-icon>create</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="content">
+    댓글 테스트입니다. 댓글 테스트입니다. 댓글 테스트입니다. 댓글 테스트입니다. 댓글 테스트입니다.
+  </div>
+
+  <mat-form-field *ngIf="isReply" class="write" color="accent">
+    <textarea [(ngModel)]="replyText" matInput placeholder="답글 작성" matTextareaAutosize matAutosizeMinRows="1"></textarea>
+    
+    <button (click)="sendReply()" color="accent" mat-icon-button matSuffix>
+      <mat-icon >reply</mat-icon>
+    </button>
+  </mat-form-field>
+
+</div>

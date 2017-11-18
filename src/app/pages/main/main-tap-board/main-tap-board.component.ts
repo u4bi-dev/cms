@@ -24,7 +24,7 @@ export class MainTapBoardComponent implements OnInit {
     for(let i = 10; i--;)this.rows.push({
       "boardId" : this.viewBoard.uri,
       "id"    : i,
-      "title" : this.viewBoard.name+" 제목" + i,
+      "title" : ` ${this.viewBoard.name} ${ i }번글 제목`,
       "write" : "ㅇㅇ",
       "date"  : "18:23",
       "hits"  : 1023,

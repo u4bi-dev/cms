@@ -13,7 +13,7 @@
 
         <mat-form-field class="field" color="accent">
             <input matInput placeholder="비밀번호"  [type]="passwordHide ? 'password' : 'text'" formControlName="password">
-            <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>            
+            <mat-icon matSuffix color="accent" (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>            
             <mat-hint align="end">
                 {{ loginForm.controls.password.value.length }} / 20
             </mat-hint>

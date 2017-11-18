@@ -48,7 +48,7 @@ export class DetailBoardListComponent implements OnInit {
                 this.rows[count] = {
                     "uri" : this.detailBoard.uri,
                     "id"    : i,
-                    "title" : `${ this.detailBoard.name } 제목${ i }`,
+                    "title" : `${ this.detailBoard.name } ${ i }번글 제목`,
                     "write" : "ㅇㅇ",
                     "date"  : "18:23",
                     "hits"  : 1023,

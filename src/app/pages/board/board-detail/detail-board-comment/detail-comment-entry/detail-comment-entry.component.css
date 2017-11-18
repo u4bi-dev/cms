@@ -1,0 +1,53 @@
+.wrapper{
+    font-size: .9rem;
+    margin-bottom: 20px;
+}
+
+.title{
+    position: relative;
+    height: 30px;
+}
+
+.info{
+    position: absolute;
+}
+
+.left{
+    left: 5px;
+}
+.right{
+    top : -9px;
+    right: 10px;
+}
+
+.content{
+    padding-left: 5px;
+}
+
+.write{
+    display: block;
+    width: 98%;
+    margin: auto;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+.write textarea{
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+    font-size: .9rem;
+    text-decoration: none;
+    outline: none;
+    line-height: 150%;
+}
+
+
+.write button{
+    /* cursor: pointer; */
+    margin-right: 10px;
+    padding-left: 10px;
+    font-size: 1.8rem;
+}
+
+/deep/ .mat-form-field-underline{
+    display: none;
+}
