@@ -1,6 +1,9 @@
-<div class="wrapper">
+<div class="wrapper" [ngStyle]="{'margin-left' : (replyThread * 2) + '%' }">
   <div class="title">
-    <div class="info left">댓글 작성자</div>
+    <div class="info left">
+      <mat-icon *ngIf="replyThread > 0" color="accent">subdirectory_arrow_right</mat-icon>
+      댓글 작성자
+    </div>
     <div class="info right">
       2017.11.07 13:25
       <button (click)="viewReply()" color="accent" mat-icon-button>

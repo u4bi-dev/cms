@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 import { Observable, Subscription } from 'rxjs';
 
@@ -10,6 +10,8 @@ import { Observable, Subscription } from 'rxjs';
 export class DetailCommentEntryComponent implements OnInit {
 
     @ViewChild('replyField') replyField : ElementRef;
+    @Input('replyThread') replyThread : number = 0;
+    
     replyTicker : Subscription;
     isReply : boolean;
 
