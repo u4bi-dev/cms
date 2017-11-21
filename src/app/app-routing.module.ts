@@ -24,6 +24,7 @@ import { DetailBoardListComponent } from './pages/board/board-detail/detail-boar
 import { DetailBoardCommentComponent } from './pages/board/board-detail/detail-board-comment/detail-board-comment.component';
 import { DetailBoardContentComponent } from './pages/board/board-detail/detail-board-content/detail-board-content.component';
 import { DetailCommentEntryComponent } from './pages/board/board-detail/detail-board-comment/detail-comment-entry/detail-comment-entry.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes : Routes = [
   { path : '', component : MainComponent },
@@ -37,6 +38,7 @@ const routes : Routes = [
       { path : '**', redirectTo : '', pathMatch : 'full' }
     ]},
   { path : 'board', redirectTo : '', pathMatch : 'full' },
+  { path : 'admin', component : AdminComponent },
   { path : '**', redirectTo : '', pathMatch : 'full' }
 ];
 
@@ -70,7 +72,8 @@ const routes : Routes = [
     DetailBoardListComponent,
     DetailBoardCommentComponent,
     DetailBoardContentComponent,
-    DetailCommentEntryComponent
+    DetailCommentEntryComponent,
+    AdminComponent
   ],
   exports: [
     RouterModule

@@ -21,6 +21,7 @@ export class MainComponent implements OnInit, OnDestroy {
   private boardPanel$ : Observable<any>;
   tapBoard : BoardPanelModel[] = [];
   mainBoard : BoardPanelModel;
+  tabIndex : number = 0;
   
   constructor(private store : Store<MainState>) {
     
@@ -41,6 +42,10 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+  }
+
+  onTapChange(e){
+    this.tabIndex = e.index;
   }
 
 }

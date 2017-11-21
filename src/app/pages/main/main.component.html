@@ -2,9 +2,9 @@
 
     <!-- <app-ad></app-ad> -->
 
-    <mat-tab-group color="accent">
-        <mat-tab *ngFor="let tap of tapBoard" [label]="tap.name">
-            <app-main-tap-board [viewBoard]="tap"></app-main-tap-board>
+    <mat-tab-group color="accent" (selectedTabChange)="onTapChange($event)">
+        <mat-tab *ngFor="let tap of tapBoard; let i = index;" [label]="tap.name">
+            <app-main-tap-board [viewBoard]="tap" [isTab]="tabIndex === i"></app-main-tap-board>
         </mat-tab>
     </mat-tab-group>
 

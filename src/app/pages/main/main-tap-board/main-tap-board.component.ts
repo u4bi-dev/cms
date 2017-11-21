@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { RouterService } from '../../../providers/router.service';
 import { BoardPanelModel } from '../../../providers/boardPanel/boardPanel.model';
 
@@ -7,10 +7,11 @@ import { BoardPanelModel } from '../../../providers/boardPanel/boardPanel.model'
   templateUrl: './main-tap-board.component.html',
   styleUrls: ['./main-tap-board.component.css']
 })
-export class MainTapBoardComponent implements OnInit {
+export class MainTapBoardComponent implements OnInit, OnChanges {
 
 
   @Input() viewBoard: BoardPanelModel;
+  @Input('isTab') isTab: boolean;
 
   rows: any[] = [];
   isScrollH : boolean;
@@ -31,8 +32,21 @@ export class MainTapBoardComponent implements OnInit {
       "likes"  : 10
     });
 
-    setTimeout( ()=> this.isScrollH = false, 1200);
+    this.tickerScroll();
 
+  }
+
+  ngOnChanges(){
+    
+      if(this.isTab){
+          this.isScrollH = true;
+          this.tickerScroll();
+      }
+  }
+
+
+  tickerScroll(){
+    setTimeout( ()=> this.isScrollH = false, 1200);
   }
 
   onActivate(e) {
