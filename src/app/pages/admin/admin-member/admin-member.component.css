@@ -21,3 +21,7 @@ mat-form-field input{
 /deep/ .mat-form-field-underline{
     display: none;
 }
+
+/deep/ .empty-row{
+    display: none;
+}
