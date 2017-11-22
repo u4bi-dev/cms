@@ -1,3 +1,19 @@
-<p>
-  admin-member works!
-</p>
+<div class="filter">
+
+  <mat-form-field color="accent">
+      <input (keyup)='updateFilter($event)' matInput placeholder="필터링 검색">
+  </mat-form-field>
+
+</div>
+
+<ngx-datatable
+  #table
+  class='material'
+  [columns]="columns"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [rowHeight]="'auto'"
+  [limit]="10"
+  [rows]='rows'>
+</ngx-datatable>

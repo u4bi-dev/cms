@@ -1,0 +1,23 @@
+.filter{
+    margin-top : 10px;
+    text-align: center;
+}
+
+.filter mat-form-field{
+    width: 50%;
+}
+
+mat-form-field input{
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+    font-size: 1.1rem;
+    text-decoration: none;
+    outline: none;
+}
+
+.ngx-datatable.material{
+    box-shadow: none !important;
+}
+
+/deep/ .mat-form-field-underline{
+    display: none;
+}
