@@ -1,3 +1,13 @@
-<p>
-  admin-setup-board works!
-</p>
+<div class="wrapper">
+
+    <h4>패널</h4>
+    <div *ngFor="let tap of tapBoard;">
+        {{ tap.name }}, {{ tap.uri }}, {{ tap.isButton }}, {{ tap.limit }}
+    </div>
+
+    <h4>메인</h4>
+    <div>
+        {{ mainBoard.name }}, {{ mainBoard.uri }}, {{ mainBoard.isButton }}, {{ mainBoard.limit }}
+    </div>
+
+</div>

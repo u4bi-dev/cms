@@ -19,8 +19,10 @@ export class MainComponent implements OnInit, OnDestroy {
 
   private sub : Subscription;
   private boardPanel$ : Observable<any>;
+
   tapBoard : BoardPanelModel[] = [];
   mainBoard : BoardPanelModel;
+  
   tabIndex : number = 0;
   
   constructor(private store : Store<MainState>) {
