@@ -24,11 +24,10 @@ mat-form-field input{
   outline: none;
 }
 
-.update{
-  margin-top : 10px;
-  text-align: right;
-}
-
 /deep/ .mat-form-field-underline{
   display: none;
+}
+
+/deep/ .mat-expansion-panel{
+  box-shadow: none !important;
 }
