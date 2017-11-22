@@ -21,8 +21,12 @@ mat-icon{
 
 .title{
     margin: auto;
-    padding-left: 80px;
+    padding-left: 30px;
     cursor: pointer;
+}
+
+.admin-icon{
+    font-size : 1.5rem;
 }
 
 /deep/ .mat-tooltip {
