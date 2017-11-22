@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMainComponent implements OnInit {
 
-  constructor() { }
+  public step = 0;
 
+  constructor() { }
+ 
   ngOnInit() {
+  }
+  
+  setStep(index: number) {
+    this.step = index;
   }
 
 }

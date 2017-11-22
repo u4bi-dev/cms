@@ -1,0 +1,34 @@
+.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field{
+  text-align: center;
+}
+
+.field mat-form-field{
+  width: 100%;
+  max-width : 300px;
+}
+
+mat-form-field input{
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+  font-size: 1.1rem;
+  text-decoration: none;
+  outline: none;
+}
+
+.update{
+  margin-top : 10px;
+  text-align: right;
+}
+
+/deep/ .mat-form-field-underline{
+  display: none;
+}
