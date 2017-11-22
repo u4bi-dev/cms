@@ -2,10 +2,9 @@
     <mat-sidenav #sidenav class="sidenav"
         [opened]="!isScreenSmall()"
         [mode]="isScreenSmall() ? 'push' : 'side'">
-        <button mat-button><mat-icon>store</mat-icon> 기본 환경설정</button>
-        <button mat-button><mat-icon>face</mat-icon> 회원 관리</button>
-        <button mat-button><mat-icon>library_add</mat-icon> 게시판 추가/제거</button>
-        <button mat-button><mat-icon>library_books</mat-icon> 게시글 설정</button>
+        <button mat-button (click)="this.routerService.onRouter('/admin')"><mat-icon>store</mat-icon> 기본 환경설정</button>
+        <button mat-button (click)="this.routerService.onRouter('/admin/member')"><mat-icon>face</mat-icon> 회원 관리</button>
+        <button mat-button (click)="this.routerService.onRouter('/admin/setup-board')"><mat-icon>library_add</mat-icon> 게시판 추가/제거</button>
     </mat-sidenav>
     
     <div class="sidenav-toggle">
@@ -15,7 +14,7 @@
     </div>
 
     <div class="sidenav-content">
-      
+        <router-outlet></router-outlet>
     </div>
-  
-  </mat-sidenav-container>
+
+</mat-sidenav-container>

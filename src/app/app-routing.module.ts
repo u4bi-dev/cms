@@ -25,6 +25,9 @@ import { DetailBoardCommentComponent } from './pages/board/board-detail/detail-b
 import { DetailBoardContentComponent } from './pages/board/board-detail/detail-board-content/detail-board-content.component';
 import { DetailCommentEntryComponent } from './pages/board/board-detail/detail-board-comment/detail-comment-entry/detail-comment-entry.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { AdminMainComponent } from './pages/admin/admin-main/admin-main.component';
+import { AdminMemberComponent } from './pages/admin/admin-member/admin-member.component';
+import { AdminSetupBoardComponent } from './pages/admin/admin-setup-board/admin-setup-board.component';
 
 const routes : Routes = [
   { path : '', component : MainComponent },
@@ -38,7 +41,13 @@ const routes : Routes = [
       { path : '**', redirectTo : '', pathMatch : 'full' }
     ]},
   { path : 'board', redirectTo : '', pathMatch : 'full' },
-  { path : 'admin', component : AdminComponent },
+  { path : 'admin', component : AdminComponent,
+    children : [
+      { path : '', component : AdminMainComponent },
+      { path : 'member', component : AdminMemberComponent },
+      { path : 'setup-board', component : AdminSetupBoardComponent },
+      { path : '**', redirectTo : '', pathMatch : 'full' }
+    ]},
   { path : '**', redirectTo : '', pathMatch : 'full' }
 ];
 
@@ -74,7 +83,10 @@ const routes : Routes = [
     DetailBoardCommentComponent,
     DetailBoardContentComponent,
     DetailCommentEntryComponent,
-    AdminComponent
+    AdminComponent,
+    AdminMainComponent,
+    AdminMemberComponent,
+    AdminSetupBoardComponent
   ],
   exports: [
     RouterModule
