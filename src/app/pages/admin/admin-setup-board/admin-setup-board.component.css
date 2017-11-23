@@ -1,3 +1,126 @@
 .wrapper{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;    
+            flex-flow: row wrap;
+}
+
+.box{
+}
+
+.a,
+.b{
+    -webkit-flex: 1 100%;
+            flex: 1 100%;
+}
+
+.field{
+    height: 200px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, .2);
+    overflow: scroll;
+}
+
+.b .field{
+    height: 400px;
+    padding-top : 10px;
+}
+
+.panel{
+    width: 100%;
+    text-align: left;
+}
+
+.selected-not{
+    text-align: center;
+}
+
+.selected-not h2{
+    color : #484848;
+    margin-top : 150px;
+    font-size: 1.8rem;
+}
+
+.selected-wrapper{
+    width: 90%;
+    margin: auto;
+}
+
+.selected-btn{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
+
+.selected-btn button{
+    margin-bottom : 50px;
+}
+
+mat-button-toggle-group{
+    width: 100%;
+}
+
+mat-button-toggle{
+    color : #E91E63;
+    -webkit-flex: 1 100%;
+            flex: 1 100%;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+input{
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    outline: none;
+}
+
+input:disabled{
+    color : #484848;
+}
+
+mat-icon{
+    font-size: 2rem;
+    margin-right : .5rem;
+}
+
+/deep/ .mat-form-field-underline{
+    display: none;
+}
+
+@media screen and (min-width: 720px) {
+    .a{
+        -webkit-flex : 2;
+                flex : 2;
+    }
     
+    .b{
+        -webkit-flex : 1;
+                flex : 1;
+    }
+
+    .a{ order : 2 }
+    .b{ order : 1 }
+
+    .field{
+        height: 400px;
+    }
+
+    .a .field{
+        border: 0;
+        border-top: 1px solid rgba(0, 0, 0, .2);
+    }
+
+    .selected-not h2{
+        font-size: 1.2rem;
+    }
+
+}
+
+@media screen and (min-width: 900px) {
+    .selected-not h2{
+        font-size: 1.5rem;
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -17,11 +17,12 @@ interface MainState{
 })
 export class AdminSetupBoardComponent implements OnInit, OnDestroy {
 
+  @ViewChild('selectedGroup') selectedGroup : any;
   private sub : Subscription;
   private boardPanel$ : Observable<any>;
 
   tapBoard : BoardPanelModel[] = [];
-  mainBoard : BoardPanelModel;
+  selectedBoard : BoardPanelModel;
 
   constructor(private store : Store<MainState>) {
     
@@ -29,7 +30,6 @@ export class AdminSetupBoardComponent implements OnInit, OnDestroy {
     this.sub = this.boardPanel$.subscribe(e => {
         if(e){
             this.tapBoard = e.tapBoard;
-            this.mainBoard = e.mainBoard;
         }
     });
     
@@ -45,4 +45,13 @@ export class AdminSetupBoardComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  selected(id){
+    this.selectedGroup.value = 'view';
+    this.selectedBoard = this.tapBoard.filter(e => e.id === id)[0];
+  }
+
+  send(type){
+    alert(type);
+  }
+  
 }

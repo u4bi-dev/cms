@@ -1,13 +1,73 @@
 <div class="wrapper">
+    
+    <div class="box a">
+        
+        <h4>패널</h4>
 
-    <h4>패널</h4>
-    <div *ngFor="let tap of tapBoard;">
-        {{ tap.name }}, {{ tap.uri }}, {{ tap.isButton }}, {{ tap.limit }}
+        <div class="field">
+            <button *ngFor="let tap of tapBoard;" class="panel" mat-button (click)="selected(tap.id)">
+                {{ tap.name }}
+            </button>
+        </div>
+
     </div>
 
-    <h4>메인</h4>
-    <div>
-        {{ mainBoard.name }}, {{ mainBoard.uri }}, {{ mainBoard.isButton }}, {{ mainBoard.limit }}
+    <div class="box b">
+        
+        <h4>세부 정보</h4>
+
+        <div class="field">
+
+            <div class="selected-not" *ngIf="!selectedBoard && selectedGroup.value !== 'create'">
+                
+                <h2>패널을 선택해주세요</h2>
+
+            </div>
+
+            <div class="selected-wrapper" *ngIf="selectedBoard || selectedGroup.value === 'create'">
+
+                <div *ngIf="selectedGroup.value !== 'create'">
+                    <mat-form-field color="accent">
+                        <input matInput placeholder="게시판 타이틀" [disabled]="selectedGroup.value !== 'edit'" [value]="selectedBoard.name">
+                    </mat-form-field>
+                    <mat-form-field color="accent">
+                        <input matInput placeholder="게시판 주소" [disabled]="selectedGroup.value !== 'edit'" [value]="selectedBoard.uri">
+                    </mat-form-field>
+                    <mat-form-field color="accent">
+                        <input matInput placeholder="게시글 노출수" type="number" min="1" [disabled]="selectedGroup.value !== 'edit'" [value]="selectedBoard.limit">
+                    </mat-form-field>
+                    <mat-slide-toggle color="accent" [checked]="selectedBoard.isButton" [disabled]="selectedGroup.value !== 'edit'">글작성 허용{{ selectedBoard.isButton ? '' : '안함' }}</mat-slide-toggle>
+                </div>
+
+                <div *ngIf="selectedGroup.value === 'create'">
+                    <mat-form-field color="accent">
+                        <input matInput placeholder="게시판 제목">
+                    </mat-form-field>
+                    <mat-form-field color="accent">
+                        <input matInput placeholder="게시판 주소">
+                    </mat-form-field>
+                    <mat-form-field color="accent">
+                        <input matInput placeholder="게시글 노출수" type="number" min="1">
+                    </mat-form-field>
+                    <mat-slide-toggle color="accent" [checked]="true" #createPanelWriteToggle>글작성 허용{{ createPanelWriteToggle.checked ? '' : '안함' }}</mat-slide-toggle>
+                </div>
+            </div>
+            
+            <div class="selected-btn">
+                <button (click)="send(selectedGroup.value)" color="accent" *ngIf="selectedBoard || selectedGroup.value === 'create'" mat-icon-button>
+                    <mat-icon *ngIf="selectedGroup.value !== 'create' && selectedGroup.value === 'view'">delete_sweep</mat-icon>
+                    <mat-icon *ngIf="selectedGroup.value !== 'create' && selectedGroup.value === 'edit'">mode_edit</mat-icon>
+                    <mat-icon *ngIf="selectedGroup.value === 'create'">add_box</mat-icon>
+                </button>
+                <mat-button-toggle-group #selectedGroup="matButtonToggleGroup">
+                    <mat-button-toggle value="view" checked="true">보기</mat-button-toggle>
+                    <mat-button-toggle value="edit">수정</mat-button-toggle>
+                    <mat-button-toggle value="create">추가</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+
+        </div>
+
     </div>
 
 </div>
