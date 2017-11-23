@@ -2,7 +2,7 @@
 
     <div class="title">
       <h1>{{ detailBoard.name }}</h1>
-      <button *ngIf="detailBoard.isButton" color="accent" (click)="this.routerService.onRouter('/board/'+boardName+'/write')" mat-raised-button>글쓰기</button>
+      <button *ngIf="detailBoard.isButton" color="accent" (click)="this.routerService.onRouter('/board/'+ detailBoard.uri +'/write')" mat-raised-button>글쓰기</button>
     </div>
     <ngx-datatable
     class='material expandable'
