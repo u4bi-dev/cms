@@ -28,12 +28,12 @@
 
                 <div *ngIf="selectedGroup.value !== 'create'">
                     <mat-form-field color="accent">
-                        <input matInput placeholder="게시판 타이틀" [disabled]="selectedGroup.value !== 'edit'" [value]="selectedBoard.name">
+                        <input matInput placeholder="게시판 타이틀" [disabled]="selectedGroup.value !== 'edit'" [(ngModel)]="selectedBoard.name">
                     </mat-form-field>
                     <mat-form-field color="accent">
-                        <input matInput placeholder="게시판 주소" [disabled]="selectedGroup.value !== 'edit'" [value]="selectedBoard.uri">
+                        <input matInput placeholder="게시판 주소" [disabled]="selectedGroup.value !== 'edit'" [(ngModel)]="selectedBoard.uri">
                     </mat-form-field>
-                    <mat-slide-toggle color="accent" [checked]="selectedBoard.isButton" [disabled]="selectedGroup.value !== 'edit'" #editPanelWriteToggle>글작성 허용{{ editPanelWriteToggle.checked ? '' : '안함' }}</mat-slide-toggle>
+                    <mat-slide-toggle color="accent" [(ngModel)]="selectedBoard.isButton" [disabled]="selectedGroup.value !== 'edit'">글작성 허용{{ selectedBoard.isButton ? '' : '안함' }}</mat-slide-toggle>
                 </div>
 
                 <div *ngIf="selectedGroup.value === 'create'">
