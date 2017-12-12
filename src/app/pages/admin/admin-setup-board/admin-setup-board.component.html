@@ -33,10 +33,7 @@
                     <mat-form-field color="accent">
                         <input matInput placeholder="게시판 주소" [disabled]="selectedGroup.value !== 'edit'" [value]="selectedBoard.uri">
                     </mat-form-field>
-                    <mat-form-field color="accent">
-                        <input matInput placeholder="게시글 노출수" type="number" min="1" [disabled]="selectedGroup.value !== 'edit'" [value]="selectedBoard.limit">
-                    </mat-form-field>
-                    <mat-slide-toggle color="accent" [checked]="selectedBoard.isButton" [disabled]="selectedGroup.value !== 'edit'">글작성 허용{{ selectedBoard.isButton ? '' : '안함' }}</mat-slide-toggle>
+                    <mat-slide-toggle color="accent" [checked]="selectedBoard.isButton" [disabled]="selectedGroup.value !== 'edit'" #editPanelWriteToggle>글작성 허용{{ editPanelWriteToggle.checked ? '' : '안함' }}</mat-slide-toggle>
                 </div>
 
                 <div *ngIf="selectedGroup.value === 'create'">
@@ -46,22 +43,19 @@
                     <mat-form-field color="accent">
                         <input matInput placeholder="게시판 주소">
                     </mat-form-field>
-                    <mat-form-field color="accent">
-                        <input matInput placeholder="게시글 노출수" type="number" min="1">
-                    </mat-form-field>
                     <mat-slide-toggle color="accent" [checked]="true" #createPanelWriteToggle>글작성 허용{{ createPanelWriteToggle.checked ? '' : '안함' }}</mat-slide-toggle>
                 </div>
             </div>
             
             <div class="selected-btn">
-                <button (click)="send(selectedGroup.value)" color="accent" *ngIf="selectedBoard || selectedGroup.value === 'create'" mat-icon-button>
-                    <mat-icon *ngIf="selectedGroup.value !== 'create' && selectedGroup.value === 'view'">delete_sweep</mat-icon>
+                <button (click)="send(selectedGroup.value, selectedBoard)" color="accent" *ngIf="selectedBoard || selectedGroup.value === 'create'" mat-icon-button>
+                    <mat-icon *ngIf="selectedGroup.value !== 'create' && selectedGroup.value === 'remove'">delete_sweep</mat-icon>
                     <mat-icon *ngIf="selectedGroup.value !== 'create' && selectedGroup.value === 'edit'">mode_edit</mat-icon>
                     <mat-icon *ngIf="selectedGroup.value === 'create'">add_box</mat-icon>
                 </button>
                 <mat-button-toggle-group #selectedGroup="matButtonToggleGroup">
-                    <mat-button-toggle value="view" checked="true">보기</mat-button-toggle>
-                    <mat-button-toggle value="edit">수정</mat-button-toggle>
+                    <mat-button-toggle value="edit" checked="true">수정</mat-button-toggle>
+                    <mat-button-toggle value="remove">삭제</mat-button-toggle>
                     <mat-button-toggle value="create">추가</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>

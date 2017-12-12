@@ -12,6 +12,7 @@ export class MainTapBoardComponent implements OnInit, OnChanges {
 
   @Input() viewBoard: BoardPanelModel;
   @Input('isTab') isTab: boolean;
+  @Input('limit') limit: number;
 
   rows: any[] = [];
   isScrollH : boolean;

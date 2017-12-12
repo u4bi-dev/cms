@@ -46,12 +46,14 @@ export class AdminSetupBoardComponent implements OnInit, OnDestroy {
   }
 
   selected(id){
-    this.selectedGroup.value = 'view';
+    this.selectedGroup.value = 'edit';
     this.selectedBoard = this.tapBoard.filter(e => e.id === id)[0];
+    console.log(this.selectedBoard);
   }
 
-  send(type){
-    alert(type);
+  send(type, board){
+    console.log(type, board);
+    alert(type + JSON.stringify(board));
   }
   
 }

@@ -4,13 +4,13 @@
 
     <mat-tab-group color="accent" (selectedTabChange)="onTapChange($event)">
         <mat-tab *ngFor="let tap of tapBoard; let i = index;" [label]="tap.name">
-            <app-main-tap-board [viewBoard]="tap" [isTab]="tabIndex === i"></app-main-tap-board>
+            <app-main-tap-board [viewBoard]="tap" [limit]="5" [isTab]="tabIndex === i"></app-main-tap-board>
         </mat-tab>
     </mat-tab-group>
 
     <app-ad></app-ad>
 
-    <app-main-tap-board [viewBoard]="mainBoard"></app-main-tap-board>
+    <app-main-tap-board [viewBoard]="mainBoard" [limit]="10"></app-main-tap-board>
     
     <app-ad></app-ad>
     

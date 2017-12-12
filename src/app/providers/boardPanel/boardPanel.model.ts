@@ -2,8 +2,7 @@ export interface BoardPanelModel{
     id       : string | number;
     name     : string,
     uri      : string,
-    isButton : boolean,
-    limit    : number
+    isButton : boolean
 }
 
 export interface BoardPanelServiceModel{
